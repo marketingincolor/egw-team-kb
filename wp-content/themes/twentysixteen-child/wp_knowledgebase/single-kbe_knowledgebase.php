@@ -62,7 +62,7 @@
                 //  Never ever delete it !!!
                 kbe_set_post_views(get_the_ID());
         ?>
-                <h1><?php the_title(); ?></h1>
+                <h1><?php the_title(); ?></h1><?php do_action( 'show_for_role' ); //@TODO: make this better! ?>
                 <!--Original Date-->
 
                 <div class="row">

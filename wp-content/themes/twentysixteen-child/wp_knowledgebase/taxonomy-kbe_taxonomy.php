@@ -86,7 +86,7 @@
                     while($kbe_tax_post_qry->have_posts()) :
                         $kbe_tax_post_qry->the_post();
             ?>
-                        <li>
+                        <li class="<?php echo ( current_user_can( 'read' ) ? 'yes' : 'no'); ?>">
                             <a href="<?php the_permalink(); ?>">
                                 <?php the_title(); ?>
                             </a>

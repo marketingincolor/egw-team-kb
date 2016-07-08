@@ -23,13 +23,13 @@
 define('DB_NAME', 'mic_teamegw');
 
 /** MySQL database username */
-define('DB_USER', 'mic');
+define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'bluegeck0');
+define('DB_PASSWORD', 'shiva69');
 
 /** MySQL hostname */
-define('DB_HOST', 'dev.marketingincolor.com');
+define('DB_HOST', 'localhost');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
