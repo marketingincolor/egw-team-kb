@@ -56,3 +56,12 @@ function show_for_user_role() {
     }
 }
 add_action ( 'show_for_role', 'show_for_user_role', 10 );
+
+
+/**
+* Custom
+*/
+function display_kb_cat_listing( $cat_name ) {
+    print '<div class="kbe_category ' . $cat_name . '">';
+}
+add_action ( 'kb_cat_list', 'display_kb_cat_listing', 10 );
