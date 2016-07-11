@@ -57,9 +57,8 @@ function show_for_user_role() {
 }
 add_action ( 'show_for_role', 'show_for_user_role', 10 );
 
-
 /**
-* Custom
+* Custom display function to change wrapper for Category list of Knowlegebase template page
 */
 function display_kb_cat_listing( $cat_name ) {
 	$cat_name = str_replace( '-', '_', $cat_name );
@@ -73,3 +72,44 @@ function display_kb_cat_listing( $cat_name ) {
     
 }
 add_action ( 'kb_cat_list', 'display_kb_cat_listing', 10 );
+
+/** 
+ * Added function from Justin Tadlock to filter the post list content by Role
+ * http://themehybrid.com/board/topics/subscribers-cant-see-content-marked-for-subscribers
+ */
+add_action( 'pre_get_posts', 'custom_kb_pre_get_posts' );
+
+function custom_kb_pre_get_posts( $query ) {
+
+    // Bail if current user can restrict content or edit other users' posts.
+    if ( current_user_can( 'restrict_content' ) || current_user_can( 'edit_others_posts' ) )
+        return;
+
+    if ( is_user_logged_in() ) {
+
+        $user = new WP_User( get_current_user_id() );
+
+        $meta_query = array(
+            'relation' => 'OR',
+            array(
+                'key'     => '_members_access_role',
+                'compare' => 'NOT EXISTS',
+            ),
+            array(
+                'key'     => '_members_access_role',
+                'value'   => $user->roles[0],
+                'compare' => '='
+            )
+        );
+    } else {
+
+        $meta_query = array(
+            array(
+                'key'     => '_members_access_role',
+                'compare' => 'NOT EXISTS'
+            )
+        );
+    }
+
+    $query->set( 'meta_query', $meta_query );
+}

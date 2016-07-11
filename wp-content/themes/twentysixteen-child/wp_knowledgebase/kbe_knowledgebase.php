@@ -94,11 +94,11 @@
                         $kbe_count_sum_parent = $kbe_taxonomy_parent_count;
                     }
         ?>
-                <!--<div class="kbe_category">-->
+                <div class="kbe_category">
                 <?php // @TODO: add some sort of "interrupt" to allow the kbe_category DIV to be
                     //WRAPPED with a constraint (via shortcode?) to restrict display:
                     //do_action( 'kb_cat_list', $kbe_term_slug );
-                    do_action( 'kb_cat_list', $kbe_term_slug );
+                    // REMOVED with the addition of code to sitecore plugin
                 ?>
                     <h2>
                         <span class="kbe_count">

@@ -37,18 +37,3 @@ function blog_favicon() {
 }
 add_action('wp_head', 'blog_favicon');
 
-
-
-
-
-
-/*add_action( 'admin_init', 'clean_unwanted_caps' );
-function clean_unwanted_caps(){
-    $delete_caps = array('kbcanviewcatwebsitedata', 'knowledgebase_can_view_cat_website_data');
-    global $wp_roles;
-    foreach ($delete_caps as $cap) {
-        foreach (array_keys($wp_roles->roles) as $role) {
-            $wp_roles->remove_cap($role, $cap);
-        }
-    }
-}*/
