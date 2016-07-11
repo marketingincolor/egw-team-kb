@@ -62,6 +62,14 @@ add_action ( 'show_for_role', 'show_for_user_role', 10 );
 * Custom
 */
 function display_kb_cat_listing( $cat_name ) {
-    print '<div class="kbe_category ' . $cat_name . '">';
+	$cat_name = str_replace( '-', '_', $cat_name );
+	$permission = "kb_can_view_cat_" . $cat_name;
+	if ( current_user_can( $permission ) ) {
+		print '<div class="kbe_category ' . $permission . '">';
+	} else {
+		print '<div class="kbe_category ' . $permission . '" style="display:none;">';
+	}
+
+    
 }
 add_action ( 'kb_cat_list', 'display_kb_cat_listing', 10 );
