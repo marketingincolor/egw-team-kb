@@ -41,7 +41,7 @@ remove_action('wp_head', 'wp_generator');
  */
  function sitecore_login_enqueue_scripts(){
 echo '<style type="text/css" media="screen">';
-echo '#login h1 a{background-image:url("'. site_url() . '/wp-content/uploads/2016/06/cropped-EvergreenWellnessLogoTablet-1.png");background-size:165px 57px;';
+echo '#login h1 a{background-image:url("'. site_url() . '/wp-content/uploads/2016/06/cropped-EvergreenWellnessLogoTablet-1.png");background-size:165px 57px; width:auto;';
 echo '</style>';
 }
 add_action( 'login_enqueue_scripts', 'sitecore_login_enqueue_scripts' );
@@ -69,11 +69,11 @@ function display_kb_cat_listing( $cat_name ) {
 		print '<div class="kbe_category ' . $permission . '" style="display:none;">';
 	}
 
-    
+
 }
 add_action ( 'kb_cat_list', 'display_kb_cat_listing', 10 );
 
-/** 
+/**
  * Added function from Justin Tadlock to filter the post list content by Role
  * http://themehybrid.com/board/topics/subscribers-cant-see-content-marked-for-subscribers
  */
