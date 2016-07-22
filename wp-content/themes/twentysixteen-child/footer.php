@@ -46,8 +46,12 @@
 					 * @since Twenty Sixteen 1.0
 					 */
 					do_action( 'twentysixteen_credits' );
+					if ( !is_user_logged_in() ) {
 				?>
-				<a href="<?php echo esc_url( __( 'kb2.marketingincolor.com/wp-admin/', 'twentysixteen-child' ) ); ?>"><?php printf( __( 'Login', 'twentysixteen-child' )); ?></a>
+				<a href="<?php echo esc_url( __( site_url('/') . 'wp-admin/', 'twentysixteen-child' ) ); ?>"><?php printf( __( 'Login', 'twentysixteen-child' )); ?></a>
+				<?php } ?>
+				<br />&copy; <?php echo date('Y'); ?> My Evergreen Wellness
+
 			</div><!-- .site-info -->
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->
